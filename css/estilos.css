@@ -1,0 +1,165 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    background:  #E5E5E5;
+    font-family: 'Roboto', sans-serif;
+}
+#container {
+    width: 1280px;
+    height: 600px;
+}
+/*INICIOOOO DA TELA DE LOGIN*/
+
+#container.index{
+    background: url('../img/Pessoas.png') no-repeat right center;
+    background-size: 45%;
+    width: 1280px;
+    height: 600px;  
+}
+article#tela-login{
+    width: 520px;
+    position: absolute;
+    top: 18%;
+    left: 10%;
+}
+#login {
+    width: 384px;
+    margin-top: 50px ;
+}
+/*Formatações*/
+#login h1 {
+    font-size: 36px;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 36px;
+}
+#login h1+input {
+    width: 350px;
+    height: 50px;
+    border-radius: 8px;
+    border: 1px solid #DCDCE6;
+    padding-left: 20px;
+    font-weight: bold ;
+}
+.enviar {
+    display: block;
+    background: #E02041;
+    color: #F0F0F5;
+    letter-spacing: 1px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 17px;
+    border: none;
+    border-radius: 8px;
+    width: 350px;
+    height: 50px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+#login .enviar:hover {
+    background: rgb(199, 27, 27);
+    transition: 0.8s;
+}
+span.sem-cadastro {
+    display: block;
+    padding-top: 40px;
+    width: 200px;
+    
+}
+span.sem-cadastro img, a {
+    vertical-align: middle; /* Alinha verticalmente a imagem com o texto */
+    text-decoration: none;
+}
+span.sem-cadastro p {
+    padding-left: 3px;
+    font-weight: bold;
+    color: #41414D;
+    display: inline;
+}
+
+/*INICIOOOO DA TELA DE CADASTROOOOOO*/
+#container.cadastro{
+    width: 1280px;
+    height: 600px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#container-filho {
+    display: flex;
+    justify-content: space-around;
+    align-items:center;
+    width: 1120px;
+    height: 577px;
+    background: #F0F0F5;
+    box-shadow: 0px 0px 100px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+article#tela-cadastro{
+    margin-left: 50px;
+    width: 520px;
+}
+#section-cadastro {
+    width: 384px;
+    margin-top: 50px;
+}
+#section-cadastro h1+p {
+    padding: 10px 0 35px 2px;
+    color: #737380;
+    font-size: 18px;
+    font-weight:700;
+    line-height: 25px;
+}
+#cadastro h1 {
+    font-size: 36px;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 36px;
+}
+
+#cadastro .sem-cadastro {
+    margin-top: 30px;
+}
+/*INICIOOOO DA TELA LATERAL: REGISTRO*/
+aside#area-lateral {
+    width: 520px;
+}
+#inputs-aside{
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+#inputs-aside input {
+    margin-top:5px;
+    width: 400px;
+    height: 50px;
+    border-radius: 8px;
+    border: none;
+    padding-left: 20px;
+    font-weight: bold ;
+}
+
+.input-text:hover::placeholder {
+    color: #fff;
+}
+.input-text:hover{
+    background: rgb(199, 27, 27);
+    transition: 0.8s;
+    color: #fff;
+}
+#cidade-uf {
+    display: flex;
+}
+#cidade-uf .cidade {
+    width: 335px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+
+#cidade-uf .uf {
+    width: 55px;
+}
