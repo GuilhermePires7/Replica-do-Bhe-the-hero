@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
+    <!-- <script src="services/api.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Be The Hero</title>
-    <link rel="stylesheet" href="/css/estilos.css" />
-    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="css/estilos.css" />
+    <link rel="stylesheet" href="css/normalize.css" />
     <!--Font-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,33 +17,87 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap"
       rel="stylesheet"
     />
-    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/arrow-right-o.css' rel='stylesheet'>
+    <link
+      href="https://unpkg.com/css.gg@2.0.0/icons/css/arrow-right-o.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div id="container" class="index">
       <!--Área de login-->
-        <article id="tela-login">
-            <!--LOGO-->
-                <section>
-                        <img src="img/Logo.png" width="250px" height="106px">
-                </section>
-            <!--FAÇA SEU LOGIN-->
-                <section id="login">
-                    <form action="">
-                        <h1>Faça seu login</h1>
-                        <input type="text" placeholder="Sua id" class="input-text">
-                        <input class="enviar" type="submit" value="Entrar">
-                        <span class="sem-cadastro">
-                            <a href="cadastro.html">
-                                <img src="img/arrow-right-o.svg" alt="">
-                                <p>Não tenho cadastro</p>
-                            </a>
-                        </span>
-                    </form>
-                </section>
-                
-          </article>
-      
+      <article id="tela-login">
+        <!--LOGO-->
+        <section>
+          <img src="img/Logo.png" width="250px" height="106px" />
+        </section>
+        <!--FAÇA SEU LOGIN-->
+        <section id="login">
+          <form action="">
+            <h1>Faça seu login</h1>
+            <input
+              type="text"
+              placeholder="Sua id"
+              id="emailInput"
+              class="input-text"
+              onchange="handleChange(event)"
+            />
+
+            <input
+              class="enviar"
+              type="submit"
+              value="Entrar"
+              onclick="enviarEmail(event)"
+            />
+            <span class="sem-cadastro">
+              <a href="cadastro.html">
+                <img src="img/arrow-right-o.svg" alt="" />
+                <p>Não tenho cadastro</p>
+              </a>
+            </span>
+          </form>
+        </section>
+      </article>
     </div>
+
+    <script>
+      //POST
+      let inputData = {
+        email: "",
+        // senha: "",
+      };
+
+      function handleChange(event) {
+        inputData = {
+          ...inputData,
+          email: event.target.value,
+        };
+      }
+
+      function enviarEmail(event) {
+        event.preventDefault();
+
+        axios
+          .post("http://127.0.0.1:8000/api/login", inputData)
+          .then((response) => {
+            // Lógica para lidar com a resposta do servidor
+            console.log(response.data);
+          })
+          .catch((error) => {
+            // Lógica para lidar com erros
+            console.error(error);
+          });
+      }
+      //GET
+      axios
+        .get("http://127.0.0.1:8000/api/login")
+        .then((response) => {
+          // Manipule os dados da resposta aqui
+          console.log(response.data);
+        })
+        .catch((error) => {
+          // Manipule o erro aqui
+          console.error(error);
+        });
+    </script>
   </body>
 </html>
